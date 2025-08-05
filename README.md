@@ -61,4 +61,5 @@ Se tudo estiver certo, verá a seguinte tela:
 ## Créditos
 
 Automação de configuração com Ansible 🚀
+
 Desafio de DevOps — Projeto de gerenciamento de configuração.
