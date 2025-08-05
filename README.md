@@ -9,6 +9,8 @@ ansible-nginx-setup/
 ├── README.md
 ├── hosts.ini
 ├── nginx_setup.yml
+├── img/
+│   ├── teste_nginx.PNG
 └── files/
     ├── nginx.conf
     └── index.html
