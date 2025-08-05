@@ -6,7 +6,7 @@ Este projeto foi desenvolvido como parte de um desafio prático de DevOps, com o
 
 A situação simulada envolve uma infraestrutura mista (on-premises e cloud), que vinha sendo configurada manualmente, gerando falhas e vulnerabilidades. Para resolver isso, foi adotada uma solução de **gerenciamento de configuração com Ansible**, automatizando a instalação e configuração do servidor web Nginx.
 
-Este projeto representa uma **estratégia prática** para garantir que todos os servidores mantenham configurações padronizadas e seguras, reduzindo erros humanos e otimizando o tempo da equipe de TI..
+Este projeto representa uma **estratégia prática** para garantir que todos os servidores mantenham configurações padronizadas e seguras, reduzindo erros humanos e otimizando o tempo da equipe de TI.
 
 ## 📁 Estrutura do Projeto
 
