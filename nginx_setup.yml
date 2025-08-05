@@ -1,0 +1,38 @@
+---
+- name: configuração do servidor web com Nginx
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Instalar o Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Iniciar o serviço do Nginx
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Copiar arquivo de configuração do Nginx
+      copy:
+        src: files/nginx.conf
+        dest: /etc/nginx/nginx.conf
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Copiar arquivo index.html
+      copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Reiniciar  Nginx para aplicar as mudanças
+      systemd:
+        name: nginx
+        state: restarted
