@@ -40,7 +40,7 @@ Se tudo estiver certo, verá a seguinte tela:
 
 ## 🧠 Sobre
 
-**Automação básica** com **Ansible** para provisionar um servidor web Nginx. Ideal para **aprendizado** ou **primeiros** testes em DevOps.
+**Automação básica** com **Ansible** para provisionar um servidor web **Nginx**. Ideal para **aprendizado** ou **primeiros** testes em DevOps.
 
 ## Créditos
 
