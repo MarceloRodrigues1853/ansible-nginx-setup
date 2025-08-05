@@ -1,4 +1,4 @@
-name: Jekyll site CI
+name: Ansible Lint CI
 
 on:
   push:
@@ -7,14 +7,19 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  lint:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar dependências
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip
+          pip install ansible ansible-lint
+
+      - name: Rodar ansible-lint no playbook
+        run: ansible-lint nginx_setup.yml
+
