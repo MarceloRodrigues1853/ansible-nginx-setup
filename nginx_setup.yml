@@ -1,38 +1,38 @@
 ---
-- name: configuração do servidor web com Nginx
+- name: Configuração do Servidor Web com Nginx
   hosts: webservers
-  become: yes
+  become: true
 
   tasks:
     - name: Instalar o Nginx
-      apt:
+      ansible.builtin.apt:
         name: nginx
         state: present
-        update_cache: yes
+        update_cache: true
 
     - name: Iniciar o serviço do Nginx
-      systemd:
+      ansible.builtin.systemd:
         name: nginx
         state: started
-        enabled: yes
+        enabled: true
 
     - name: Copiar arquivo de configuração do Nginx
-      copy:
+      ansible.builtin.copy:
         src: files/nginx.conf
         dest: /etc/nginx/nginx.conf
         owner: root
         group: root
         mode: '0644'
 
-    - name: Copiar arquivo index.html
-      copy:
+    - name: Copiar página index.html para /var/www/html
+      ansible.builtin.copy:
         src: files/index.html
         dest: /var/www/html/index.html
         owner: root
         group: root
         mode: '0644'
 
-    - name: Reiniciar  Nginx para aplicar as mudanças
-      systemd:
+    - name: Reiniciar o Nginx para aplicar as mudanças
+      ansible.builtin.systemd:
         name: nginx
         state: restarted
